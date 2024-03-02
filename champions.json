@@ -13,7 +13,9 @@
             "Demon",
             "Spirit"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -38,7 +40,9 @@
             "Human",
             "Magicborn"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -62,7 +66,9 @@
         "species": [
             "God-Warrior"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -86,7 +92,9 @@
         "species": [
             "Darkin"
         ],
-        "resource": "Manaless",
+        "resource": [
+            "Manaless"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -111,7 +119,9 @@
         "species": [
             "Vastayan"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -136,7 +146,9 @@
         "species": [
             "Human"
         ],
-        "resource": "Energy",
+        "resource": [
+            "Energy"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -161,7 +173,9 @@
         "species": [
             "Human"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -185,7 +199,9 @@
         "species": [
             "Minotaur"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -211,7 +227,9 @@
             "Undead",
             "Yordle"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -236,7 +254,9 @@
             "God",
             "Spirit"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -262,7 +282,9 @@
             "Human",
             "Magicborn"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -288,7 +310,9 @@
             "Human",
             "Spiritualist"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -314,7 +338,9 @@
             "Human",
             "Iceborn"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -339,7 +365,9 @@
             "Celestial",
             "Dragon"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -364,7 +392,9 @@
         "species": [
             "God-Warrior"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -388,7 +418,9 @@
         "species": [
             "Celestial"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -412,7 +444,9 @@
         "species": [
             "Void-Being"
         ],
-        "resource": "Manaless",
+        "resource": [
+            "Manaless"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -436,7 +470,9 @@
         "species": [
             "Golem"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -461,7 +497,9 @@
             "Human",
             "Magically Altered"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -487,7 +525,9 @@
             "Human",
             "Iceborn"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -511,7 +551,9 @@
         "species": [
             "Golem"
         ],
-        "resource": "Healthcosts",
+        "resource": [
+            "Healthcosts"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -535,7 +577,9 @@
         "species": [
             "Human"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -560,7 +604,9 @@
             "Cyborg",
             "Human"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -584,7 +630,9 @@
         "species": [
             "Void-Being"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -608,7 +656,9 @@
         "species": [
             "Yordle"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -633,7 +683,9 @@
         "species": [
             "Human"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -659,7 +711,9 @@
             "Aspect",
             "Human"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -684,7 +738,9 @@
             "Chemically Altered",
             "Human"
         ],
-        "resource": "Healthcosts",
+        "resource": [
+            "Healthcosts"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -708,7 +764,9 @@
         "species": [
             "Human"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -733,7 +791,9 @@
         "species": [
             "Human"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -758,7 +818,9 @@
             "Demon",
             "Spirit"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -782,7 +844,9 @@
         "species": [
             "Human"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -806,7 +870,9 @@
         "species": [
             "Yordle"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -830,7 +896,9 @@
         "species": [
             "Human"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -855,7 +923,9 @@
             "Human",
             "Magicborn"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Ranged"
         ],
@@ -880,7 +950,9 @@
         "species": [
             "Golem"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -904,7 +976,9 @@
         "species": [
             "Human"
         ],
-        "resource": "Mana",
+        "resource": [
+            "Mana"
+        ],
         "range_type": [
             "Melee"
         ],
@@ -928,7 +1002,9 @@
         "species": [
             "Human"
         ],
-        "resource": "Manaless",
+        "resource": [
+            "Manaless"
+        ],
         "range_type": [
             "Melee"
         ],

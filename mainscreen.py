@@ -7,10 +7,10 @@ import json
 from difflib import get_close_matches
 import numpy as np
 import random
+import re
 
 tesseract_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 pytesseract.pytesseract.tesseract_cmd = tesseract_path
-guess = "Nasus"
 
 # Initialize an empty list to store the champions' information
 champions_list = []
@@ -171,8 +171,10 @@ def remove_duplicates(input_list, available_check):
     return valid_lists
 # Make the first guess
 def make_first_guess(guess):
+    global tried_names
     x1, x2 = 1660, 400
     y1, y2 = 620, 80
+    
     # Define the region coordinates of the input field
     input_field_region = (x1, y1, x2, y2)  # Define the coordinates of the input field region
 
@@ -187,13 +189,14 @@ def make_first_guess(guess):
     if  input_text.strip() == 'Type champion name ...' or input_text.strip() == 'Type champion name...':
         # Click on the input field (adjust the coordinates as needed)
         pyautogui.click(x1 + 250, y1 + 30)
-
+        tried_names.append([guess])
         # Type "Nasus" into the input field
         pyautogui.typewrite(guess)
         time.sleep(1)  # Wait for typing to complete
 
         # Press Enter to confirm the input
         pyautogui.press('enter')
+        
         pyautogui.click(x1 - 100, y1)
 
     # Wait for some time for the answer (adjust as needed)
@@ -581,6 +584,23 @@ def flatten(lst):
         elif item != '':
             flattened.append(item)
     return flattened
+# Get a random champion 
+def get_random_champion():
+    # Load champion data from JSON file
+    with open('champions.json', 'r') as f:
+        champions_list = json.load(f)
+
+    # Extract the list of champion names from the loaded data
+    champion_names = [champion['name'] for champion in champions_list]
+
+    # Get a random champion name
+    champion = random.choice(champion_names)
+    champion = champion[0]
+    champion = re.sub(r"\[|\]", "", champion)
+    
+    return champion
+
+guess = get_random_champion()
 
 make_first_guess(guess)
 
