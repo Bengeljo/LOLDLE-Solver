@@ -1580,7 +1580,9 @@
         "range_type": [
             "Ranged"
         ],
-        "regions": [],
+        "regions": [
+            "Ionia"
+        ],
         "release_year": [
             "2011"
         ]

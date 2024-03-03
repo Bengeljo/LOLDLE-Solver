@@ -39,6 +39,13 @@ anticriteria = {
     'regions': '',
     'release_year': ''
     }
+partiallyright = {
+    'positions':'',
+    'species': '',
+    'resource': '',
+    'range_type': '',
+    'regions': '',
+    }
 tried_names = []
 # Set the language
 custom_config = r'--oem 3 --psm 6 -l loldle'
@@ -47,6 +54,7 @@ regionscheck = ['Ixtal','Icathia','Runeterra', "Piltover", "Noxus", "Shadow Isle
 resourcescheck = ['Flow','Bloodthirst','Grit','Heat','Ferocity','Rage','Shield','Courage','Fury', 'Mana', 'Manaless', 'Healthcosts', 'Energy']
 speciescheck = ['Cat','Brackern','Revenant','Vastayan','Dog','Rat','Troll','Unknown','Undead','Human','Magically Altered', 'Yordle', 'Golem', 'Magicborn', 'Demon', 'Spirit', 'Chemically Altered', 'Aspect', 'Void-Being', 'Cyborg', 'Iceborn', 'Celestial', 'God-Warrior', 'Dragon', 'Spiritualist', 'God','Darkin']
 positioncheck = ['Middle','Top','Jungle','Bottom','Support']
+rangetypecheck = ['Meele', 'Ranged']
 # Function to add a champion to the list if it doesn't already exist
 def add_champion(name, gender, positions, species, resource, range_type, regions, release_year):
     with open('champions.json', 'r') as f:
@@ -235,8 +243,7 @@ def make_guess(guess):
     latestresults()
 # Check the latest search    
 def latestresults():
-    global otherp, otherr, otherrs, othersp, otherrt, criteria, anticriteria, tried_names
-    print(otherp, otherr, otherrs, otherrt, othersp)
+    global  criteria, anticriteria, tried_names, partiallyright
     print('--Tried names--')
     print(tried_names)
     #swait = input("Can I continue ?")
@@ -385,14 +392,17 @@ def latestresults():
     if cpositions == 'Green':
         criteria['positions'] = positions
     elif cpositions == 'Orange':
-        if len(criteria.get('positions', [])) == 0 :
-            criteria['positions'] = [positions[0]]
-            if len(positions) > 2:
-                otherp = [positions[1], positions[2]]
-            elif len(positions) == 2:
-                otherp = [positions[1]]
-        else:
-            criteria['positions'] = otherp
+        if len(partiallyright.get('positions', [])) >= 1:
+            if positions not in partiallyright['positions']:
+                partiallyright['positions'].append(positions)
+                flattenpositions = flatten(partiallyright['positions'])
+                partiallyright['positions'] = flattenpositions
+                partiallyright['positions'] = remove_duplicates(partiallyright['positions'], positioncheck)
+            else:
+                pass
+        else: 
+            partiallyright['positions'] = positions
+        pass
     else:
         if len(anticriteria.get('positions', [])) >= 1:
             if positions not in anticriteria['positions']:
@@ -409,14 +419,17 @@ def latestresults():
     if cspecies == 'Green':
         criteria['species'] = species            
     elif cspecies == 'Orange':
-        if len(criteria.get('species', [])) == 0: 
-            criteria['species'] = [species[0]]
-            if len(species) > 2: 
-                othersp = [species[1], species[2]]
-            elif len(species) == 2:
-                othersp = [species[1]]
-        else:
-            criteria['species'] = othersp
+        if len(partiallyright.get('species', [])) >= 1:
+            if species not in partiallyright['species']:
+                partiallyright['species'].append(species)
+                flattenspecies = flatten(partiallyright['species'])
+                partiallyright['species'] = flattenspecies
+                partiallyright['species'] = remove_duplicates(partiallyright['species'], speciescheck)
+            else:
+                pass
+        else: 
+            partiallyright['species'] = species
+        pass
     else:
         if len(anticriteria.get('species', [])) >= 1:
             if species not in anticriteria['species']:
@@ -433,14 +446,17 @@ def latestresults():
     if cresource == 'Green':
         criteria['resource'] = resource       
     elif cresource == 'Orange':
-        if len(criteria.get('resource',[])) == 0:
-            criteria['resource'] = resource[0]
-            if len(resource) > 2:
-                otherrs = [resource[1], resource[2]]
-            elif len(resource) == 2 :
-                otherrs = [resource[1]]
-        else:
-            criteria['resource'] = otherrs
+        if len(partiallyright.get('resource', [])) >= 1:
+            if resource not in partiallyright['resource']:
+                partiallyright['resource'].append(resource)
+                flattenresource = flatten(partiallyright['resource'])
+                partiallyright['resource'] = flattenresource
+                partiallyright['resource'] = remove_duplicates(partiallyright['resource'], resourcescheck)
+            else:
+                pass
+        else: 
+            partiallyright['resource'] = resource
+        pass
     else:
         if len(anticriteria.get('resource',[])) >= 1:
             if resource not in anticriteria['resource']:
@@ -457,14 +473,16 @@ def latestresults():
     if crange == 'Green':
         criteria['range_type'] = rangetype
     elif crange == 'Orange':
-        if len(criteria.get('range_type', [])) == 0:
-            criteria['range_type'] = [rangetype[0]]
-            if len(rangetype) > 2:
-                otherrt = [rangetype[1],rangetype[2]]
-            elif len(rangetype) == 2:
-                otherrt = [rangetype[1]]
+        if len(criteria.get('range_type', [])) >= 1:
+            if rangetype not in partiallyright['range_type']:
+                partiallyright['range_type'].append(rangetype)
+                flattenrangetype = flatten(partiallyright['range_type'])
+                partiallyright['range_type'] = flattenrangetype
+                partiallyright['range_type'] = remove_duplicates(partiallyright['range_type'], rangetypecheck)
+            else:
+                pass
         else:
-            criteria['range_type'] = otherrt
+          partiallyright['range_type']  = rangetype
     else:
         if len(anticriteria.get('range_type', [])) >= 1:
             if rangetype not in anticriteria['range_type']:
@@ -481,14 +499,17 @@ def latestresults():
     if cregions == 'Green':
         criteria['regions'] = regions
     elif cregions == 'Orange':
-        if len(criteria.get('regions', [])) == 0:
-            criteria['regions'] = [regions[0]]
-            if len(regions) > 2:
-                otherr = [regions[1],regions[2]]
-            elif len(regions) == 2:
-                otherr = [regions[1]]
-        else:
-            criteria['regions'] = otherr
+        if len(partiallyright.get('regions', [])) >= 1:
+            if regions not in partiallyright['regions']:
+                partiallyright['regions'].append(regions)
+                flattenregions = flatten(partiallyright['regions'])
+                partiallyright['regions'] = flattenregions
+                partiallyright['regions'] = remove_duplicates(partiallyright['regions'], regionscheck)
+            else:
+                pass
+        else: 
+            partiallyright['regions'] = regions
+        pass
     else:
         if len(anticriteria.get('regions', [])) >= 1:
             if regions not in anticriteria['regions']:
@@ -519,19 +540,28 @@ def latestresults():
     anticriteria['species'] = list(set(anticriteria['species']))
     anticriteria['release_year'] = list(set(anticriteria['release_year']))
     print(criteria)
+    # Cleaning up the lists from dublications
+    
+    
+    
+    
+    
+    
     # Cleans the criteria list from empty spaces, so that we can search for a champion in the list
     criteria = {key: value for key, value in criteria.items() if value != '' and value != ['']}
     anticriteria = {key: value for key, value in anticriteria.items() if value != '' and value != ['']}
     print(f'This is the current search criteria:{criteria}')
-    print(f'This is the current wrong criteria:{anticriteria}')       
+    print(f'This is the current wrong criteria:{anticriteria}')
+    print(f'This is the current partially right criteria: {partiallyright}')       
     
-   
+    partiallyright = {key: value for key, value in partiallyright.items() if value != '' and value != [''] and value != []}
     
     
     with open('champions.json', 'r') as f:
         champions_list = json.load(f)
     # New guess will be generated from a list of characters
-    newguess = search_champions(champions_list, criteria, anticriteria, tried_names)
+    partiallyrightchamps = filter_partially_correct_champions(champions_list, partiallyright, criteria)
+    newguess = search_champions(champions_list, criteria, anticriteria, partiallyright, tried_names)
     newguess = flatten(newguess)
     print(newguess)
     if len(newguess) > 1:
@@ -563,17 +593,15 @@ def latestresults():
     champions_list.clear()
     return 
 # Search for champions that fit the criteria
-def search_champions(champions, criteria, anticriteria, tried_names):
+def search_champions(all_champions, criteria, anticriteria, partially_right_criteria, tried_names):
     matching_champions = []
-    for champion in champions:
-        # Check if champion matches any condition in the anticriteria
-        if any(champion.get(key) == value for key, value in anticriteria.items()):
-                continue  # Skip this champion if it matches any anticriteria condition
-        # Check if champion matches the criteria
-        if all(champion.get(key) == value for key, value in criteria.items()):
-            matching_champions.append(champion['name'])
-    # Filter out already tried names
-    matching_champions = [champion for champion in matching_champions if champion not in tried_names]
+    for champion in all_champions:
+        if champion['name'] in tried_names:
+            continue  # Skip if the champion has already been tried
+        if match_criteria(champion, criteria) and not match_anticriteria(champion, anticriteria):
+            # Check if the champion also matches the partially right criteria
+            if match_partially_right_criteria(champion, partially_right_criteria):
+                matching_champions.append(champion['name'])
     return matching_champions
 # Flatten the lists as sublists appear
 def flatten(lst):
@@ -599,6 +627,48 @@ def get_random_champion():
     champion = re.sub(r"\[|\]", "", champion)
     
     return champion
+# Check for champions that are partially correct
+def filter_partially_correct_champions(champions, partially_criteria, criteria):
+    partially_correct_champions = []
+    for champion in champions:
+        is_partially_correct = False
+        for key, values in partially_criteria.items():
+            if key in champion and any(value in champion[key] for value in values):
+                is_partially_correct = True
+                break
+        if is_partially_correct:
+            # Check if the champion also matches the normal criteria and contains at least one of the items from the keys
+            if all(champion.get(key) == value for key, value in criteria.items()) and any(key in champion for key in partially_criteria.keys()):
+                partially_correct_champions.append(champion)
+    return partially_correct_champions
+
+def match_criteria(champion, criteria):
+    for key, values in criteria.items():
+        if key in champion:
+            # Ensure that the values in the champion's attribute match the criteria
+            champion_values = set(champion[key])
+            if not set(values).issubset(champion_values):
+                return False
+        else:
+            # If the key is not in the champion's attributes, it does not match the criteria
+            return False
+    return True
+
+def match_anticriteria(champion, anticriteria):
+    for key, values in anticriteria.items():
+        if key in champion:
+            # Check if any value in the champion's attribute matches any value in anticriteria
+            if any(value in champion[key] for value in values):
+                return True
+    return False
+
+def match_partially_right_criteria(champion, partially_right_criteria):
+    for key, values in partially_right_criteria.items():
+        if key in champion:
+            # Ensure that the intersection between the champion's attribute and values for the key is not empty
+            if not set(champion[key]).intersection(values):
+                return False
+    return True
 
 guess = get_random_champion()
 
