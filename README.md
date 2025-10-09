@@ -29,9 +29,3 @@ Works properly but I also made a costum model to read the font to reduce the rec
 I want to solve the whole quiz, if you want to help me, teach me about python or do you own stuff with it you are free to do so.
 I am always happy to see people interact with stuff I created and am always willing to learn new things.
 If you see something in the code that can be optimized you are free to either open up an issue or make pull requests.
-
-
-# Discord Server
-You can join this Discord Server to get in contact with me, we can chat or you can show what you did with my code or show me improvments.
-Maybe you solved the next quiz already and want to present it to me.
-https://discord.gg/VaQprP2rST
